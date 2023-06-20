@@ -1,0 +1,22 @@
+currency.group.admin:
+  title: 'Currency module settings'
+  description: 'Currency Configuration'
+  route_name: system.admin_config_development_currency
+  parent: system.admin_config_development
+  weight: 100
+
+currency.currency_list:
+  title: 'Currency List'
+  description: 'A page displays all currency values stored in Database.'
+  parent: currency.group.admin
+  route_name: currency.currency_list
+  weight: 100
+
+currency.currency_form:
+  title: 'Currency Form'
+  description: 'A page to add or update currency value in Database.'
+  parent: currency.group.admin
+  route_name: currency.currency_form
+  weight: 100
+
+

@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ * Updates rates for currency stored in DB: once a day.
+ */
+function currency_cron(): void {
+    $current_timestamp = \Drupal::time()->getRequestTime();
+    $cron_last_run_timestamp = \Drupal::state()->get('system.cron_last');
+    if (date('Ymd', $current_timestamp) != date('Ymd', $cron_last_run_timestamp)) {
+        $provider = new \Drupal\currency\Provider\CurrencyFixerAPIClient;
+        $currency = new \Drupal\currency\Controller\CurrencyMainController($provider);
+        $currency->updateDBRates();
+    }
+}
+
+
+

@@ -1,0 +1,35 @@
+# Create a block for admin/config/development menu.
+system.admin_config_development_currency:
+  path: '/admin/config/development/currency'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Currency'
+  requirements:
+    _permission: 'access administration pages'
+
+# Create a page to display currency list (from DB).
+currency.currency_list:
+  path: '/currency/list'
+  defaults:
+    _controller: '\Drupal\currency\Controller\CurrencyRouteController::currency_list'
+    _title: 'Currency List'
+  requirements:
+    _permission: 'access administration pages'
+
+# Create a page to provide a form to add currency (to DB).
+currency.currency_form:
+  path: '/currency/form'
+  defaults:
+    _form: '\Drupal\currency\Form\CurrencyForm'
+    _title: 'Administer Currency Form'
+  requirements:
+    _permission: 'access administration pages'
+
+# Development purpose: to test hard-coded amount via currency provider API.
+currency.test_currency_service_provider:
+  path: '/test_service'
+  defaults:
+    _controller: '\Drupal\currency\Controller\CurrencyRouteController::test_currency_service_provider'
+    _title: 'Test currency service provider: convert'
+  requirements:
+    _permission: 'access administration pages'

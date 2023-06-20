@@ -1,0 +1,4 @@
+services:
+  currency_service.provider:
+    class: \Drupal\currency\Provider\CurrencyFixerAPIClient
+

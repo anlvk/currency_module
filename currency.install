@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ * Create a table to store currency codes and rates.
+ */
+function currency_schema(){
+    $schema['currency'] = array(
+        'description' => 'The table for storing currencies',
+        'fields' => array(
+            'id' => array(
+                'description' => 'Primary identifier for a row',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'currency_code' => array(
+                'description' => 'Currency code',
+                'type' => 'varchar',
+                'length' => 10,
+                'not null' => TRUE,
+            ),
+            'currency_rate' => array(
+                'description' => 'Currency rate',
+                'type' => 'numeric',
+                'precision' => 10, 
+                'scale' => 6, 
+                'not null' => FALSE,
+                'unsigned' => TRUE,
+            ),
+        ),
+        'primary key' => array('id'),
+        'unique keys' => array(
+            'id' => array('id'),
+            'currency_code' => array('currency_code'),
+        ),
+    );
+    return $schema;
+}
+
