@@ -18,7 +18,7 @@ Drupal 9: custom module to manage currency with the help of Fixer API.
    $converter->convert($amount, $from, $to);
    ```
 6. Cron job that runs once a day: retrieves currency rates via Fixer API and updates currency values stored in DB
-7. A page with hard-coded amount to test converting which is provided by Drupal service (№4) `path: /test_service/`
+7. A page with hard-coded amount to test converting which is provided by Drupal service (№5) `path: /test_service/`
 
 #### PRE-INSTALL
 1. Go to **[Fixer web-site](https://fixer.io/)**
